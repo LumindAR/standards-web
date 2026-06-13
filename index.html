@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>标准查询网</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#f0f2f5;color:#333}
+.topbar{background:#1a5276;color:#fff;padding:8px 20px;font-size:13px;text-align:center}
+.header{background:#fff;padding:28px 20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.header h1{font-size:30px;color:#1a5276;margin-bottom:6px}
+.header p{color:#888;font-size:14px}
+.sbox{max-width:700px;margin:18px auto 0;display:flex;gap:8px}
+.sbox input{flex:1;padding:12px 16px;border:2px solid #1a5276;border-radius:6px;font-size:15px;outline:none}
+.sbox button{padding:12px 24px;background:#1a5276;color:#fff;border:none;border-radius:6px;font-size:15px;cursor:pointer}
+.sbox button:hover{background:#2471a3}
+.cnav{max-width:700px;margin:12px auto 0;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.cnav a{color:#555;text-decoration:none;padding:5px 12px;background:#fff;border-radius:16px;font-size:12px;border:1px solid #ddd;cursor:pointer}
+.cnav a:hover,.cnav a.on{background:#1a5276;color:#fff;border-color:#1a5276}
+.stats{text-align:center;padding:8px;color:#999;font-size:12px}
+.main{max-width:900px;margin:0 auto;padding:16px}
+table{width:100%;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+th{background:#f4f6f9;padding:12px 16px;text-align:left;font-size:13px;color:#666;border-bottom:2px solid #e0e4e8}
+td{padding:12px 16px;border-bottom:1px solid #f0f2f5;font-size:14px}
+tr:hover{background:#f8fafc}
+.code{font-weight:bold;color:#1a5276;white-space:nowrap}
+.st{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:bold}
+.st-g{background:#d4edda;color:#155724}
+.st-r{background:#f8d7da;color:#721c24}
+.tl{color:#1a5276;text-decoration:none;cursor:pointer}
+.tl:hover{text-decoration:underline}
+.det{background:#fff;border-radius:8px;padding:24px;margin-top:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.det h2{font-size:22px;color:#1a5276;margin-bottom:4px}
+.det h3{font-size:15px;color:#555;font-weight:normal;margin-bottom:14px}
+.meta{display:flex;gap:16px;margin:12px 0;font-size:13px;color:#666;flex-wrap:wrap}
+.meta span{padding:4px 10px;background:#f0f2f5;border-radius:4px}
+.abs{line-height:1.8;color:#555;margin:12px 0}
+.back{color:#2980b9;cursor:pointer;font-size:13px;margin-bottom:14px;display:inline-block}
+.back:hover{text-decoration:underline}
+.clist{margin-top:16px;border-top:1px solid #e0e4e8;padding-top:12px}
+.ci{padding:10px 0;border-bottom:1px dashed #e0e4e8}
+.cn{font-weight:bold;color:#2980b9;font-size:13px}
+.empty{text-align:center;padding:80px 20px;color:#bbb;font-size:15px}
+footer{text-align:center;padding:40px 20px;color:#bbb;font-size:12px}
+@media(max-width:600px){.header h1{font-size:22px}.sbox{flex-direction:column}td,th{padding:8px}}
+</style>
+</head>
+<body>
+<div class="topbar">标准查询网 — GB/T · ISO 标准检索</div>
+<div class="header">
+<h1>标准查询网</h1>
+<p>查标准、看条款、辨版本 — 认证审核人员常用工具</p>
+<div class="sbox">
+<input type="search" id="q" placeholder="输入标准号或关键词，如 GB/T 3324、家具、碳排放…" onkeyup="if(event.key==='Enter')search()">
+<button onclick="search()">检索</button>
+</div>
+<div class="cnav" id="cats"></div>
+<div class="stats" id="stat"></div>
+</div>
+<div class="main" id="main"></div>
+<footer>标准查询网 — 本站为非官方查询工具 · 数据来源：国家标准全文公开系统</footer>
+<script src="app.js"></script>
+</body>
+</html>
